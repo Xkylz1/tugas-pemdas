@@ -13,5 +13,6 @@ public class TugasPemdas {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        System.out.println("annjaa");
     }
 }
