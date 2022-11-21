@@ -52,14 +52,14 @@ public class FullBintang {
 
     //masih jelek
     public static void segitiga(int alas, int tinggi) {
-//        int barrierKiri = alas;
+//        int barrierKiri = alas/2;
         for (int i = 0; i < tinggi; i++) {
 //            for (int k = 0; k < barrierKiri; k++) {
-//                System.out.print(" ");
+//                System.out.print("   ");
 //        }
 //            barrierKiri--;
             for (int j = 0; j < i + 1; j++) {
-                System.out.print("*  ");
+                System.out.print(" * ");
             }
             System.out.println();
         }
