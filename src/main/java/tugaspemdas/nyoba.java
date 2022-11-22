@@ -87,28 +87,28 @@ public class nyoba {
         }
     }
 
-    public static void jajar() {
-        int x = 8, y = 5;
-        int spasi = y - 1;
-        int batasBawah=y-1;
-        for (int i = 0; i < y; i++) {
-            for (int k = 0; k < spasi; k++) {
-                System.out.print("   ");
-            }
-            spasi--;
-            for (int j = 0; j < x; j++) {
-                if(i==0||i==batasBawah){
-                System.out.print("*  ");}
-                else {
-                    System.out.print("*  ");
-                    for (int l =2;l<x;l++){
-                        System.out.print("   ");
-                    }
-                    System.out.print("*  ");
-                }
-            }
-            System.out.println();
-        }
+//    public static void jajar() {
+//        int x = 8, y = 5;
+//        int spasi = y - 1;
+//        int batasBawah=y-1;
+//        for (int i = 0; i < y; i++) {
+//            for (int k = 0; k < spasi; k++) {
+//                System.out.print("   ");
+//            }
+//            spasi--;
+//            for (int j = 0; j < x; j++) {
+//                if(i==0||i==batasBawah){
+//                System.out.print("*  ");}
+//                else {
+//                    System.out.print("*  ");
+//                    for (int l =2;l<x;l++){
+//                        System.out.print("   ");
+//                    }
+//                    System.out.print("*  ");
+//                }
+//            }
+//            System.out.println();
+//        }
     }
-}
+//}
 
