@@ -42,8 +42,8 @@ public class TugasPemdas {
                 segitigaSamaKaki(tinggi);
             } else if (menu == 4) {
                 System.out.println("JAJAR GENJANG");
-//                System.out.print("Masukan Alas : ");
-//                alas = in.nextInt();
+                System.out.print("Masukan Alas : ");
+                alas = in.nextInt();
                 System.out.print("Masukan Tinggi : ");
                 tinggi = in.nextInt();
                 jajarGenjang(alas, tinggi);
