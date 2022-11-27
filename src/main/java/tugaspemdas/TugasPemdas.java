@@ -69,7 +69,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
-                        trapesiumBawah(bawah,tinggi);
+                        trapesiumBawah(bawah, tinggi);
                         endTraps = true;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
@@ -77,13 +77,21 @@ public class TugasPemdas {
                     }
                 }
             } else if (menu == 6) {
-                System.out.println("BELAH KETUPAT");
+                while (end == false) {
+                    System.out.println("BELAH KETUPAT");
 //                komponen belah ketupat apa aja?
-                System.out.print("Masukan panjang rusuk (wajib angka ganjil) : ");
+                    System.out.print("Masukan panjang rusuk (Hanya Angka Ganjil) : ");
 //                input komponen belah ketupat
-                panjang = in.nextInt();
+                    panjang = in.nextInt();
+                    if (panjang % 2 == 0) {
+                        System.out.println("Silakan Input Angka Ganjil");
+                    } else if (panjang % 2 == 1) {
+                        belahKetupat(panjang);
+                        end = true;
+                    }
+                }
+                end = false;
 //                method belah ketupat
-                belahKetupat(panjang);
             } else if (menu == 7) {
                 System.out.println("LAYANG - LAYANG");
 //                komponen layang layang apa aja?
@@ -93,6 +101,7 @@ public class TugasPemdas {
                 System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                 System.out.println("Silakan Pilih Kembali");
             }
+            endTraps = false;
 
         } while (end == false);
     }
@@ -214,9 +223,10 @@ public class TugasPemdas {
 
         }
     }
+
     public static void trapesiumBawah(int bawah, int y) {
         int spasi = 0;
-        int panjangAtas = bawah+2*(y-1);
+        int panjangAtas = bawah + 2 * (y - 1);
         for (int i = 0; i < y; i++) {
             for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
@@ -226,9 +236,8 @@ public class TugasPemdas {
             }
             System.out.println();
 //            panjangBaris
-            panjangAtas-= 2;
+            panjangAtas -= 2;
             spasi++;
         }
     }
 }
-
