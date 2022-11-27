@@ -6,7 +6,7 @@ public class TugasPemdas {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int menu;
+        int menu, menuTrapesium;
         int panjang = 0;
         int lebar = 0;
         int tinggi = 0;
@@ -48,20 +48,31 @@ public class TugasPemdas {
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
                 System.out.println("TRAPESIUM");
-                System.out.print("Masukan Atas (minimal 3) : ");
-                atas = in.nextInt();
-//                System.out.print("Masukan Bawah : ");
-//                bawah = in.nextInt();
-                System.out.print("Masukan Tinggi : ");
-                tinggi = in.nextInt();
-                //method trapesium
-                trapesium(atas,tinggi);
+                System.out.println("1. Trapesium Atas");
+                System.out.println("2. Trapesium Bawah");
+                System.out.print("Silakan Pilih Trapesium : ");
+                menuTrapesium = in.nextInt();
+                if (menuTrapesium == 1) {
+                    System.out.println("TRAPESIUM ATAS");
+                    System.out.print("Masukan Atas (minimal 3) : ");
+                    atas = in.nextInt();
+                    System.out.print("Masukan Tinggi : ");
+                    tinggi = in.nextInt();
+                    trapesium(atas, tinggi);
+                } else if (menuTrapesium == 2) {
+                    System.out.println("TRAPESIUM BAWAH");
+                    System.out.print("Masukan Bawah : ");
+                    bawah = in.nextInt();
+                    System.out.print("Masukan Tinggi : ");
+                    tinggi = in.nextInt();
+                    //method Trapesium Bawah
+                }
             } else if (menu == 6) {
                 System.out.println("BELAH KETUPAT");
 //                komponen belah ketupat apa aja?
                 System.out.print("Masukan panjang rusuk : ");
 //                input komponen belah ketupat
-                panjang=in.nextInt();
+                panjang = in.nextInt();
 //                method belah ketupat
                 belahKetupat(panjang);
             } else if (menu == 7) {
@@ -155,20 +166,20 @@ public class TugasPemdas {
     }
 
     //anjay
-    public static void belahKetupat(int panjangRusuk){
+    public static void belahKetupat(int panjangRusuk) {
         //loop segitiga atas
-        int batasSegitiga=1;
-        int spasi=(panjangRusuk/2)/2+1;
+        int batasSegitiga = 1;
+        int spasi = (panjangRusuk / 2) / 2 + 1;
 
-        for(int i = 0;i<panjangRusuk/2;i++){
-            for (int k=0;k<spasi;k++){
+        for (int i = 0; i < panjangRusuk / 2; i++) {
+            for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
             }
-            for(int j=0;j<batasSegitiga;j++){
+            for (int j = 0; j < batasSegitiga; j++) {
                 System.out.print("*  ");
             }
             System.out.println();
-            batasSegitiga+=2;
+            batasSegitiga += 2;
             spasi--;
         }
         //baris tengah
@@ -177,16 +188,16 @@ public class TugasPemdas {
 //        }
 //        System.out.println();
         //loop segitiga bawah
-        for(int i=0;i<panjangRusuk/2+1;i++){
-            for(int k=0;k<spasi;k++){
+        for (int i = 0; i < panjangRusuk / 2 + 1; i++) {
+            for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
             }
-            for(int j=0;j<batasSegitiga;j++){
+            for (int j = 0; j < batasSegitiga; j++) {
                 System.out.print("*  ");
             }
             System.out.println();
             spasi++;
-            batasSegitiga-=2;
+            batasSegitiga -= 2;
 
         }
     }
