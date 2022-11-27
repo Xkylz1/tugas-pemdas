@@ -14,7 +14,6 @@ public class TugasPemdas {
         int atas = 0;
         int bawah = 0;
         boolean end = false;
-        boolean endTraps = false;
         do {
             menu();
             menu = in.nextInt();
