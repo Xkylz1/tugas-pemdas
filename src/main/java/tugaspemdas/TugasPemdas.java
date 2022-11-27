@@ -6,7 +6,7 @@ public class TugasPemdas {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int menu, menuTrapesium;
+        int menu, menuTrapesium, menuSegitiga;
         int panjang = 0;
         int lebar = 0;
         int tinggi = 0;
@@ -34,12 +34,31 @@ public class TugasPemdas {
                 lebar = in.nextInt();
                 persegiPanjang(panjang, lebar);
             } else if (menu == 3) {
-                System.out.println("SEGITIGA SAMA KAKI");
-//                System.out.print("Masukan Alas : ");
-//                alas = in.nextInt();
-                System.out.print("Masukan Tinggi : ");
-                tinggi = in.nextInt();
-                segitigaSamaKaki(tinggi);
+                while (end == false) {
+                    System.out.println("SEGITIGA");
+                    System.out.println("1. Segitiga Sama Kaki");
+                    System.out.println("2. Segitiga Siku - Siku");
+                    System.out.print("Masukan Pilihan Segitiga : ");
+                    menuSegitiga = in.nextInt();
+                    if (menuSegitiga == 1) {
+                        System.out.println("SEGITIGA SAMA KAKI");
+                        System.out.print("Masukan Tinggi : ");
+                        tinggi = in.nextInt();
+                        segitigaSamaKaki(tinggi);
+                        end = true;
+                    } else if (menuSegitiga == 2) {
+                        System.out.println("SEGITIGA SIKU - SIKU");
+                        System.out.print("Masukan Tinggi : ");
+                        tinggi = in.nextInt();
+                        //method segitiga siku - siku
+
+                        end = true;
+                    } else {
+                        System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
+                        System.out.println("Silakan Pilih Kembali");
+                    }
+                }
+                end = false;
             } else if (menu == 4) {
                 System.out.println("JAJAR GENJANG");
                 System.out.print("Masukan Alas : ");
@@ -48,7 +67,7 @@ public class TugasPemdas {
                 tinggi = in.nextInt();
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
-                while (endTraps == false) {
+                while (end == false) {
                     System.out.println("TRAPESIUM");
                     System.out.println("1. Trapesium Atas");
                     System.out.println("2. Trapesium Bawah");
@@ -61,7 +80,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         trapesium(atas, tinggi);
-                        endTraps = true;
+                        end = true;
                     } else if (menuTrapesium == 2) {
                         System.out.println("TRAPESIUM BAWAH");
                         System.out.print("Masukan Bawah : ");
@@ -70,12 +89,13 @@ public class TugasPemdas {
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
                         trapesiumBawah(bawah, tinggi);
-                        endTraps = true;
+                        end = true;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                         System.out.println("Silakan Pilih Kembali");
                     }
                 }
+                end = false;
             } else if (menu == 6) {
                 while (end == false) {
                     System.out.println("BELAH KETUPAT");
@@ -101,7 +121,6 @@ public class TugasPemdas {
                 System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                 System.out.println("Silakan Pilih Kembali");
             }
-            endTraps = false;
 
         } while (end == false);
     }
