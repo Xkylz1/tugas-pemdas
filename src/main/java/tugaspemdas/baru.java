@@ -115,19 +115,19 @@ public class baru {
         }
     }
 
-    public static void trapesiumBawah(int x, int y) {
+    public static void trapesiumBawah(int bawah, int y) {
         int spasi = 0;
-
+int panjangAtas = bawah+2*(y-1);
         for (int i = 0; i < y; i++) {
             for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
             }
-            for (int j = 0; j < x; j++) {
+            for (int j = 0; j < panjangAtas; j++) {
                 System.out.print("*  ");
             }
             System.out.println();
 //            panjangBaris
-            x += 2;
+            panjangAtas-= 2;
             spasi++;
         }
     }

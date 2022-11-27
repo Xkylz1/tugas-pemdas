@@ -69,6 +69,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
+                        trapesiumBawah(bawah,tinggi);
                         endTraps = true;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
@@ -211,6 +212,22 @@ public class TugasPemdas {
             nilaiAwalSegitiga -= 2;
             spasi++;
 
+        }
+    }
+    public static void trapesiumBawah(int bawah, int y) {
+        int spasi = 0;
+        int panjangAtas = bawah+2*(y-1);
+        for (int i = 0; i < y; i++) {
+            for (int k = 0; k < spasi; k++) {
+                System.out.print("   ");
+            }
+            for (int j = 0; j < panjangAtas; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+//            panjangBaris
+            panjangAtas-= 2;
+            spasi++;
         }
     }
 }
