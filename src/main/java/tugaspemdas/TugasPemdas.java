@@ -14,6 +14,7 @@ public class TugasPemdas {
         int atas = 0;
         int bawah = 0;
         boolean end = false;
+        boolean endTraps = false;
         do {
             menu();
             menu = in.nextInt();
@@ -47,26 +48,33 @@ public class TugasPemdas {
                 tinggi = in.nextInt();
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
-                System.out.println("TRAPESIUM");
-                System.out.println("1. Trapesium Atas");
-                System.out.println("2. Trapesium Bawah");
-                System.out.print("Silakan Pilih Trapesium : ");
-                menuTrapesium = in.nextInt();
-                if (menuTrapesium == 1) {
-                    System.out.println("TRAPESIUM ATAS");
-                    System.out.print("Masukan Atas (minimal 3) : ");
-                    atas = in.nextInt();
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    trapesium(atas, tinggi);
-                } else if (menuTrapesium == 2) {
-                    System.out.println("TRAPESIUM BAWAH");
-                    System.out.print("Masukan Bawah : ");
-                    bawah = in.nextInt();
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    //method Trapesium Bawah
-                }
+                while(endTraps == false){
+                    System.out.println("TRAPESIUM");
+                    System.out.println("1. Trapesium Atas");
+                    System.out.println("2. Trapesium Bawah");
+                    System.out.print("Silakan Pilih Trapesium : ");
+                    menuTrapesium = in.nextInt();
+                    if (menuTrapesium == 1) {
+                        System.out.println("TRAPESIUM ATAS");
+                        System.out.print("Masukan Atas (minimal 3) : ");
+                        atas = in.nextInt();
+                        System.out.print("Masukan Tinggi : ");
+                        tinggi = in.nextInt();
+                        trapesium(atas, tinggi);
+                        endTraps = true;
+                    } else if (menuTrapesium == 2) {
+                        System.out.println("TRAPESIUM BAWAH");
+                        System.out.print("Masukan Bawah : ");
+                        bawah = in.nextInt();
+                        System.out.print("Masukan Tinggi : ");
+                        tinggi = in.nextInt();
+                        //method Trapesium Bawah
+                        endTraps = true;
+                    } else {
+                        System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
+                        System.out.println("Silakan Pilih Kembali");
+                    }
+                } 
             } else if (menu == 6) {
                 System.out.println("BELAH KETUPAT");
 //                komponen belah ketupat apa aja?
@@ -80,6 +88,9 @@ public class TugasPemdas {
 //                komponen layang layang apa aja?
 //                input komponen layang layang
 //                method layang layang        
+            } else {
+                System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
+                System.out.println("Silakan Pilih Kembali");
             }
 
         } while (end == false);
