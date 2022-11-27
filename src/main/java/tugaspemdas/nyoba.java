@@ -13,7 +13,7 @@ public class nyoba {
 //        jajarGenjang(panjangSisi, lebar);
 //        int panjangSisi=5;
 //        persegi(panjangSisi);
-        jajar();
+//        jajar();
 
     }
 

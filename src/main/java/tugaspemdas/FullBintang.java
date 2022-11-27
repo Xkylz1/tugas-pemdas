@@ -64,5 +64,11 @@ public class FullBintang {
             System.out.println();
         }
     }
+
+    public static void trapesium(int x, int y){
+        //tinggi atas>=2
+        //tinggi bebas
+
+    }
     //anjay
 }

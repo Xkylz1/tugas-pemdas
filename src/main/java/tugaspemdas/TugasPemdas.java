@@ -48,18 +48,22 @@ public class TugasPemdas {
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
                 System.out.println("TRAPESIUM");
-                System.out.print("Masukan Atas : ");
+                System.out.print("Masukan Atas (minimal 3) : ");
                 atas = in.nextInt();
-                System.out.print("Masukan Bawah : ");
-                bawah = in.nextInt();
+//                System.out.print("Masukan Bawah : ");
+//                bawah = in.nextInt();
                 System.out.print("Masukan Tinggi : ");
                 tinggi = in.nextInt();
                 //method trapesium
+                trapesium(atas,tinggi);
             } else if (menu == 6) {
                 System.out.println("BELAH KETUPAT");
 //                komponen belah ketupat apa aja?
+                System.out.print("Masukan panjang rusuk : ");
 //                input komponen belah ketupat
-//                method belah ketupat        
+                panjang=in.nextInt();
+//                method belah ketupat
+                belahKetupat(panjang);
             } else if (menu == 7) {
                 System.out.println("LAYANG - LAYANG");
 //                komponen layang layang apa aja?
@@ -71,7 +75,7 @@ public class TugasPemdas {
     }
 
     public static void menu() {
-        System.out.println("=============================");
+        System.out.println("================================================");
         System.out.println("PROGRAM BANGUN DATAR");
         System.out.println("1. Persegi");
         System.out.println("2. Persegi Panjang");
@@ -87,7 +91,7 @@ public class TugasPemdas {
     public static void persegi(int panjang) {
         for (int i = 0; i < panjang; i++) {
             for (int j = 0; j < panjang; j++) {
-                System.out.print("* ");
+                System.out.print("*  ");
             }
             System.out.println();
         }
@@ -132,5 +136,58 @@ public class TugasPemdas {
             System.out.println();
         }
     }
+
+    public static void trapesium(int lebarAtas, int tinggi) {
+        int spasi = tinggi - 1;
+
+        for (int i = 0; i < tinggi; i++) {
+            for (int k = 0; k < spasi; k++) {
+                System.out.print("   ");
+            }
+            for (int j = 0; j < lebarAtas; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+//            panjangBaris
+            lebarAtas += 2;
+            spasi--;
+        }
+    }
+
     //anjay
+    public static void belahKetupat(int panjangRusuk){
+        //loop segitiga atas
+        int batasSegitiga=1;
+        int spasi=(panjangRusuk/2)/2+1;
+
+        for(int i = 0;i<panjangRusuk/2;i++){
+            for (int k=0;k<spasi;k++){
+                System.out.print("   ");
+            }
+            for(int j=0;j<batasSegitiga;j++){
+                System.out.print("*  ");
+            }
+            System.out.println();
+            batasSegitiga+=2;
+            spasi--;
+        }
+        //baris tengah
+//        for(int i=0;i<panjangRusuk;i++){
+//            System.out.print("*  ");
+//        }
+//        System.out.println();
+        //loop segitiga bawah
+        for(int i=0;i<panjangRusuk/2+1;i++){
+            for(int k=0;k<spasi;k++){
+                System.out.print("   ");
+            }
+            for(int j=0;j<batasSegitiga;j++){
+                System.out.print("*  ");
+            }
+            System.out.println();
+            spasi++;
+            batasSegitiga-=2;
+
+        }
+    }
 }
