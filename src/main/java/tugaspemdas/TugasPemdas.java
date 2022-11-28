@@ -14,7 +14,6 @@ public class TugasPemdas {
         int atas = 0;
         int bawah = 0;
         boolean end = false;
-        boolean endTraps = false;
         do {
             menu();
             menu = in.nextInt();
@@ -51,6 +50,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method segitiga siku - siku
+                        segitigaSiku(tinggi);
 
                         end = true;
                     } else {
@@ -134,7 +134,7 @@ public class TugasPemdas {
         System.out.println("4. Jajar Genjang");
         System.out.println("5. Trapesium");
         System.out.println("6. Belah Ketupat");
-        System.out.println("7. Layang - Layang");
+//        System.out.println("7. Layang - Layang");
         System.out.println("8. Keluar");
         System.out.print("Silakan Pilih Menu : ");
     }
@@ -257,6 +257,17 @@ public class TugasPemdas {
 //            panjangBaris
             panjangAtas -= 2;
             spasi++;
+        }
+    }
+
+    public static void segitigaSiku(int tinggi) {
+        int panjangBaris = 1;
+        for (int i = 0; i < tinggi; i++) {
+            for (int j = 0; j < panjangBaris; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+            panjangBaris++;
         }
     }
 }
