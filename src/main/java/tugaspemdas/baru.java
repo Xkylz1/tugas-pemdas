@@ -5,9 +5,11 @@ public class baru {
 //        trapesium(5, 10);
 //        belahKetupat(5);
 //        segitigaSamaKaki(7);
+        segitigaSiku(60);
 //        ketupat(7);
-        trapesiumBawah(4,3);
+//        trapesiumBawah(4,3);
     }
+
 
 
 
@@ -129,6 +131,17 @@ int panjangAtas = bawah+2*(y-1);
 //            panjangBaris
             panjangAtas-= 2;
             spasi++;
+        }
+    }
+
+    public static void segitigaSiku(int tinggi){
+      int  panjangBaris=1;
+        for (int i=0;i<tinggi;i++){
+            for(int j=0;j<panjangBaris;j++){
+                System.out.print("*  ");
+            }
+            System.out.println();
+            panjangBaris++;
         }
     }
 }
