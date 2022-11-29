@@ -79,7 +79,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method trapesium atas
-                        trapesiumOriginal(atas, tinggi);
+                        trapesiumOriginal(alas, tinggi);
                         if (alas <= tinggi) {
                             System.out.println("Ini Bukan Trapesium");
                         }
@@ -90,7 +90,7 @@ public class TugasPemdas {
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
-                        trapesiumTerbalik(bawah, tinggi);
+                        trapesiumTerbalik(atas, tinggi);
                         if (tinggi >= atas) {
                             System.out.println("Ini Bukan Trapesium");
                         }
