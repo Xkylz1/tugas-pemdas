@@ -105,11 +105,12 @@ public class TugasPemdas {
                 end = false;
             } else if (menu == 6) {
                 System.out.println("SEGI LIMA");
-                System.out.print("Masukan Panjang Sisi : ");
+                System.out.print("Masukan Panjang Sisi (Hanya Ganjil lebih dari 3) : ");
                 sisi = in.nextInt();
                 //method Segi Lima
-                
-            }else if (menu == 7){
+                penta(sisi);
+
+            } else if (menu == 7) {
                 System.out.println("SEGI DELAPAN");
                 System.out.print("Masukan Panjang Sisi : ");
                 sisi = in.nextInt();
@@ -287,5 +288,40 @@ public class TugasPemdas {
         trapesiumOriginal(sisi + 2 * (sisi - 1), sisi);
         persegiPanjang(2 * sisi + sisi - 2, sisi - 2);
         trapesiumTerbalik(sisi + 2 * (sisi - 1), sisi);
+    }
+
+    public static void penta(int x) {
+        int segitigaAwal = 1;
+        int spasi2 = x - 1;
+        for (int i = 0; i < x - 1; i++) {
+            for (int k = 0; k < spasi2; k++) {
+                System.out.print("   ");
+            }
+            spasi2--;
+            for (int j = 0; j < segitigaAwal; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+            segitigaAwal += 2;
+        }
+        int panjang = 2 * x - 1;
+        int spasi = 0;
+        boolean mines = true;
+        for (int i = 0; i < x; i++) {
+            for (int k = 0; k < spasi; k++) {
+                System.out.print("   ");
+            }
+            for (int j = 0; j < panjang; j++) {
+                System.out.print("*  ");
+            }
+            System.out.println();
+            if (mines) {
+                spasi++;
+                panjang -= 2;
+                mines = false;
+            } else {
+                mines = true;
+            }
+        }
     }
 }
