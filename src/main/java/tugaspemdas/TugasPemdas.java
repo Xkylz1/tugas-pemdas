@@ -17,9 +17,6 @@ public class TugasPemdas {
         do {
             menu();
             menu = in.nextInt();
-//             if (menu == 8) {
-//             System.out.println("Anda Keluar Dari Program");
-//             end = true;
             if (menu == 1) {
                 System.out.println("PERSEGI");
                 System.out.print("Masukan Panjang : ");
@@ -34,12 +31,12 @@ public class TugasPemdas {
                 lebar = in.nextInt();
                 //method Persegi Panjang
                 persegiPanjang(panjang, lebar);
+                if(panjang ==lebar){
+                    System.out.println("Ini Bukan Persegi Panjang");
+                }
             } else if (menu == 3) {
-                while (end == false) {
-                    System.out.println("SEGITIGA");
-                    System.out.println("1. Segitiga Sama Kaki");
-                    System.out.println("2. Segitiga Siku - Siku");
-                    System.out.print("Masukan Pilihan Segitiga : ");
+                do {
+                    menuSegitiga();
                     menuSegitiga = in.nextInt();
                     if (menuSegitiga == 1) {
                         System.out.println("SEGITIGA SAMA KAKI");
@@ -47,20 +44,20 @@ public class TugasPemdas {
                         tinggi = in.nextInt();
                         //Method segitiga sama kaki
                         segitigaSamaKaki(tinggi);
-                        end = true;
                     } else if (menuSegitiga == 2) {
                         System.out.println("SEGITIGA SIKU - SIKU");
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method segitiga siku - siku
                         segitigaSiku(tinggi);
-
+                    } else if (menuSegitiga == 3) {
+                        System.out.println("Anda Kembali Ke - Menu");
                         end = true;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                         System.out.println("Silakan Pilih Kembali");
                     }
-                }
+                } while (end == false);
                 end = false;
             } else if (menu == 4) {
                 System.out.println("JAJAR GENJANG");
@@ -71,74 +68,52 @@ public class TugasPemdas {
                 //method Jajar genjang
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
-                while (end == false) {
-                    System.out.println("TRAPESIUM");
-                    System.out.println("1. Trapesium Atas");
-                    System.out.println("2. Trapesium Bawah");
-                    System.out.print("Silakan Pilih Trapesium : ");
+                do {
+                    menuTrapesium();
                     menuTrapesium = in.nextInt();
                     if (menuTrapesium == 1) {
-                        while (end == false) {
-                            System.out.println("TRAPESIUM ATAS");
-                            System.out.print("Masukan Atas (minimal 3) : ");
-                            atas = in.nextInt();
-                            if (atas <= 3) {
-                                System.out.println("Masukan Inputan Yang Benar");
-                            } else if (atas >= 3) {
-                                end = true;
-                            }
-                        }
+                        System.out.println("TRAPESIUM");
+                        System.out.print("Masukan Alas : ");
+                        alas = in.nextInt();
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method trapesium atas
                         trapesium(atas, tinggi);
-
-                    } else if (menuTrapesium == 2) {
-                        while (end == false) {
-                            System.out.println("TRAPESIUM BAWAH");
-                            System.out.print("Masukan Bawah (Minimal 3) : ");
-                            bawah = in.nextInt();
-                            if (bawah <= 3) {
-                                System.out.println("Masukan Inputan Yang Benar");
-                            }else if(bawah >= 3){
-                                end = true;
-                            }
+                        if (alas <= tinggi) {
+                            System.out.println("Ini bukan trapesium");
                         }
+                    } else if (menuTrapesium == 2) {
+                        System.out.println("TRAPESIUM TERBALIK");
+                        System.out.print("Masukan Atas : ");
+                        atas = in.nextInt();
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
                         trapesiumBawah(bawah, tinggi);
+                        if(tinggi >= atas){
+                            System.out.println("Ini Bukan Trapesium");
+                        }
+                    } else if (menuTrapesium == 3) {
+                        System.out.println("Anda Kembali Ke - Menu");
                         end = true;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                         System.out.println("Silakan Pilih Kembali");
                     }
-                }
+                } while (end == false);
                 end = false;
             } else if (menu == 6) {
-                while (end == false) {
-                    System.out.println("BELAH KETUPAT");
-                    System.out.print("Masukan panjang rusuk (Hanya Angka Ganjil) : ");
-                    panjang = in.nextInt();
-                    //Harus angka ganjil karena kalau genap aneh
-                    if (panjang % 2 == 0) {
-                        System.out.println("Silakan Input Angka Ganjil");
-                    } else if (panjang % 2 == 1) {
-                        //method belah Ketupat
-                        belahKetupat(panjang);
-                        end = true;
-                    }
-                }
-                end = false;
-//                method belah ketupat
-            } else if (menu == 7) {
+                System.out.println("SEGI LIMA");
+                System.out.println("");
+                
+                
+                
+                
+                
+            } else if (menu == 8) {
                 System.out.println("Terima Kasih Sudah Menggunakan Program Kami");
                 System.out.println("Anda Keluar Dari Program.");
-                end = true;
-//                System.out.println("LAYANG - LAYANG");
-//                komponen layang layang apa aja?
-//                input komponen layang layang
-//                method layang layang        
+                end = true;       
             } else {
                 System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                 System.out.println("Silakan Pilih Kembali");
@@ -155,9 +130,25 @@ public class TugasPemdas {
         System.out.println("3. Segitiga");
         System.out.println("4. Jajar Genjang");
         System.out.println("5. Trapesium");
-        System.out.println("6. Belah Ketupat");
-//        System.out.println("7. Layang - Layang");
-        System.out.println("7. Keluar");
+        System.out.println("6. Segi Lima");
+        System.out.println("7. Segi Delapan");
+        System.out.println("8. Keluar");
+        System.out.print("Silakan Pilih Menu : ");
+    }
+
+    public static void menuTrapesium() {
+        System.out.println("TRAPESIUM");
+        System.out.println("1. Trapesium");
+        System.out.println("2. Trapesium Terbalik");
+        System.out.println("3. Kembali");
+        System.out.print("Silakan Pilih Menu : ");
+    }
+
+    public static void menuSegitiga() {
+        System.out.println("SEGITIGA");
+        System.out.println("1. Segitiga Sama Kaki");
+        System.out.println("2. Segitiga Siku - Siku");
+        System.out.println("3. Kembali");
         System.out.print("Silakan Pilih Menu : ");
     }
 
