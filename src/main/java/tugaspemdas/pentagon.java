@@ -2,7 +2,7 @@ package tugaspemdas;
 
 public class pentagon {
     public static void main(String[] args) {
-        int sisi = 8;
+        int sisi = 5;
 //        for (int i=0;i<sisi;)
         penta(sisi);
     }

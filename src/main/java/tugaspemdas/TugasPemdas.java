@@ -80,9 +80,9 @@ public class TugasPemdas {
                         tinggi = in.nextInt();
                         //method trapesium atas
                         trapesiumOriginal(alas, tinggi);
-                        if (alas <= tinggi) {
-                            System.out.println("Ini Bukan Trapesium");
-                        }
+//                        if (alas <= tinggi) {
+//                            System.out.println("Ini Bukan Trapesium");
+//                        }
                     } else if (menuTrapesium == 2) {
                         System.out.println("TRAPESIUM TERBALIK");
                         System.out.print("Masukan Atas : ");
@@ -91,9 +91,9 @@ public class TugasPemdas {
                         tinggi = in.nextInt();
                         //method Trapesium Bawah
                         trapesiumTerbalik(atas, tinggi);
-                        if (tinggi >= atas) {
-                            System.out.println("Ini Bukan Trapesium");
-                        }
+//                        if (tinggi >= atas) {
+//                            System.out.println("Ini Bukan Trapesium");
+//                        }
                     } else if (menuTrapesium == 3) {
                         System.out.println("Anda Kembali Ke - Menu");
                         end = true;
@@ -208,8 +208,11 @@ public class TugasPemdas {
     }
 
     public static void trapesiumOriginal(int panjangAlas, int tinggi) {
-        int atas = panjangAlas - 2 * (tinggi - 1);
+        int atas = panjangAlas - (2 * (tinggi - 1));
         int spasi = tinggi - 1;
+        if(atas<3){
+            System.out.println("Trapesium ini tidak sempurna");
+        }
         for (int i = 0; i < tinggi; i++) {
             for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
@@ -271,6 +274,9 @@ public class TugasPemdas {
             panjangAtas -= 2;
             spasi++;
         }
+        if(panjangAtas<0){
+            System.out.println("Trapesium mungkin error");
+        }
     }
 
     public static void segitigaSiku(int tinggi) {
@@ -286,7 +292,7 @@ public class TugasPemdas {
 
     public static void oktagon(int sisi) {
         trapesiumOriginal(sisi + 2 * (sisi - 1), sisi);
-        persegiPanjang(2 * sisi + sisi - 2, sisi - 2);
+        persegiPanjang((2 * sisi) + (sisi - 2), sisi - 2);
         trapesiumTerbalik(sisi + 2 * (sisi - 1), sisi);
     }
 
@@ -304,6 +310,7 @@ public class TugasPemdas {
             System.out.println();
             segitigaAwal += 2;
         }
+
         int panjang = 2 * x - 1;
         int spasi = 0;
         boolean mines = true;
