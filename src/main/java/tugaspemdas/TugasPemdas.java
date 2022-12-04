@@ -195,10 +195,10 @@ public class TugasPemdas {
         int spasi = tinggi - 1;
         for (int i = 0; i < tinggi; i++) {
             for (int k = 0; k < spasi; k++) {
-                System.out.print("   ");
+                System.out.print(" ");
             }
             for (int j = 0; j < nilaiAwalSegitiga; j++) {
-                System.out.print("*  ");
+                System.out.print(" * ");
             }
             System.out.println();
             nilaiAwalSegitiga += 2;
