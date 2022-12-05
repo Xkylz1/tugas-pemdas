@@ -12,7 +12,6 @@ public class TugasPemdas {
         int tinggi = 0;
         int alas = 0;
         int atas = 0;
-        int bawah = 0;
         int sisi = 0;
         boolean end = false;
         do {
@@ -22,7 +21,6 @@ public class TugasPemdas {
                 System.out.println("PERSEGI");
                 System.out.print("Masukan Panjang : ");
                 panjang = in.nextInt();
-                //method persegi
                 persegi(panjang);
             } else if (menu == 2) {
                 System.out.println("PERSEGI PANJANG");
@@ -30,7 +28,6 @@ public class TugasPemdas {
                 panjang = in.nextInt();
                 System.out.print("Masukan Lebar : ");
                 lebar = in.nextInt();
-                //method Persegi Panjang
                 persegiPanjang(panjang, lebar);
                 if (panjang == lebar) {
                     System.out.println("Ini Bukan Persegi Panjang");
@@ -49,7 +46,6 @@ public class TugasPemdas {
                         System.out.println("SEGITIGA SIKU - SIKU");
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
-                        //method segitiga siku - siku
                         segitigaSiku(tinggi);
                     } else if (menuSegitiga == 3) {
                         System.out.println("Anda Kembali Ke - Menu");
@@ -66,7 +62,6 @@ public class TugasPemdas {
                 alas = in.nextInt();
                 System.out.print("Masukan Tinggi : ");
                 tinggi = in.nextInt();
-                //method Jajar genjang
                 jajarGenjang(alas, tinggi);
             } else if (menu == 5) {
                 do {
@@ -78,22 +73,22 @@ public class TugasPemdas {
                         alas = in.nextInt();
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
-                        //method trapesium atas
+                        int atasTrapesium = alas - (2 * (tinggi - 1));
+                        if (atasTrapesium < 2) {
+                            System.out.println("Trapesium ini mungkin tidak sempurna");
+                        }
                         trapesiumOriginal(alas, tinggi);
-//                        if (alas <= tinggi) {
-//                            System.out.println("Ini Bukan Trapesium");
-//                        }
                     } else if (menuTrapesium == 2) {
                         System.out.println("TRAPESIUM TERBALIK");
                         System.out.print("Masukan Atas : ");
                         atas = in.nextInt();
                         System.out.print("Masukan Tinggi : ");
                         tinggi = in.nextInt();
-                        //method Trapesium Bawah
+                        int atasTrapesium = alas - (2 * (tinggi - 1));
+                        if (atasTrapesium < 2) {
+                            System.out.println("Trapesium ini mungkin tidak sempurna");
+                        }
                         trapesiumTerbalik(atas, tinggi);
-//                        if (tinggi >= atas) {
-//                            System.out.println("Ini Bukan Trapesium");
-//                        }
                     } else if (menuTrapesium == 3) {
                         System.out.println("Anda Kembali Ke - Menu");
                         end = true;
@@ -107,13 +102,14 @@ public class TugasPemdas {
                 System.out.println("SEGI LIMA");
                 System.out.print("Masukan Panjang Sisi (Hanya Ganjil lebih dari 3) : ");
                 sisi = in.nextInt();
-                //method Segi Lima
                 penta(sisi);
-
             } else if (menu == 7) {
                 System.out.println("SEGI DELAPAN");
                 System.out.print("Masukan Panjang Sisi : ");
                 sisi = in.nextInt();
+                if (sisi < 2) {
+                    System.out.println("Segi delapan ini mungkin tidak sempurna");
+                }
                 oktagon(sisi);
             } else if (menu == 8) {
                 System.out.println("Terima Kasih Sudah Menggunakan Program Kami");
@@ -123,7 +119,6 @@ public class TugasPemdas {
                 System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                 System.out.println("Silakan Pilih Kembali");
             }
-
         } while (end == false);
     }
 
@@ -158,8 +153,8 @@ public class TugasPemdas {
     }
 
     public static void persegi(int panjang) {
-        for (int i = 0; i < panjang; i++) {
-            for (int j = 0; j < panjang; j++) {
+        for (int i = 0; i < panjang; i++) {         //banyak baris ke bawah
+            for (int j = 0; j < panjang; j++) {     //panjang satu baris
                 System.out.print("*  ");
             }
             System.out.println();
@@ -167,8 +162,8 @@ public class TugasPemdas {
     }
 
     public static void persegiPanjang(int panjang, int lebar) {
-        for (int i = 0; i < lebar; i++) {
-            for (int j = 0; j < panjang; j++) {
+        for (int i = 0; i < lebar; i++) {           //banyak baris ke bawah
+            for (int j = 0; j < panjang; j++) {     //panjang satu baris
                 System.out.print("*  ");
             }
             System.out.println();
@@ -177,13 +172,13 @@ public class TugasPemdas {
     }
 
     public static void jajarGenjang(int alas, int tinggi) {
-        int maju = tinggi - 1;
-        for (int i = 0; i < tinggi; i++) {
-            for (int k = 0; k < maju; k++) {
+        int maju = tinggi - 1;                  //spasi baris pertama
+        for (int i = 0; i < tinggi; i++) {      //banyak baris ke bawah
+            for (int k = 0; k < maju; k++) {    //spasi
                 System.out.print("   ");
             }
             maju--;
-            for (int j = 0; j < alas; j++) {
+            for (int j = 0; j < alas; j++) {    //panjang satu baris
                 System.out.print("*  ");
             }
             System.out.println();
@@ -193,96 +188,55 @@ public class TugasPemdas {
 
     public static void segitigaSamaKaki(int tinggi) {
         int nilaiAwalSegitiga = 1;
-        int spasi = tinggi - 1;
-        for (int i = 0; i < tinggi; i++) {
-            for (int k = 0; k < spasi; k++) {
-                System.out.print(" ");
+        int spasi = tinggi - 1;                             //spasi baris pertama
+        for (int i = 0; i < tinggi; i++) {                  //banyak baris ke bawah
+            for (int k = 0; k < spasi; k++) {               //print spasi
+                System.out.print("   ");
             }
-            for (int j = 0; j < nilaiAwalSegitiga; j++) {
-                System.out.print(" * ");
+            for (int j = 0; j < nilaiAwalSegitiga; j++) {   //print bintang2 untuk segitiga
+                System.out.print("*  ");
             }
             System.out.println();
-            nilaiAwalSegitiga += 2;
+            nilaiAwalSegitiga += 2;                         //+2 karena bertambah di sisi kanan dan sisi kiri
             spasi--;
         }
     }
 
     public static void trapesiumOriginal(int panjangAlas, int tinggi) {
-        int atas = panjangAlas - (2 * (tinggi - 1));
+        int atas = panjangAlas - (2 * (tinggi - 1));    //panjang sisi atas
         int spasi = tinggi - 1;
-        if(atas<3){
-            System.out.println("Trapesium ini tidak sempurna");
-        }
-        for (int i = 0; i < tinggi; i++) {
-            for (int k = 0; k < spasi; k++) {
+        for (int i = 0; i < tinggi; i++) {              //banyak baris ke bawah
+            for (int k = 0; k < spasi; k++) {           //print spasi
                 System.out.print("   ");
             }
-            for (int j = 0; j < atas; j++) {
+            for (int j = 0; j < atas; j++) {            //print baris bintang2 "*  "
                 System.out.print("*  ");
             }
             System.out.println();
-            atas += 2;
+            atas += 2;                                  //panjang baris bertambah 2 karena bertambah di kedua sisi
             spasi--;
-        }
-    }
-
-    public static void belahKetupat(int panjangRusuk) {
-        int tinggiSegitiga = panjangRusuk / 2;
-        int nilaiAwalSegitiga = 1;
-        int spasi = tinggiSegitiga;//(tinggi segitiga -1 +1
-        for (int i = 0; i < tinggiSegitiga; i++) {
-            for (int k = 0; k < spasi; k++) {
-                System.out.print("   ");
-            }
-            for (int j = 0; j < nilaiAwalSegitiga; j++) {
-                System.out.print("*  ");
-            }
-            System.out.println();
-            nilaiAwalSegitiga += 2;
-            spasi--;
-        }
-        for (int i = 0; i < panjangRusuk; i++) {
-            System.out.print("*  ");
-        }
-        System.out.println();
-        nilaiAwalSegitiga -= 2;
-        spasi++;
-        for (int i = 0; i < tinggiSegitiga; i++) {
-            for (int k = 0; k < spasi; k++) {
-                System.out.print("   ");
-            }
-            for (int j = 0; j < nilaiAwalSegitiga; j++) {
-                System.out.print("*  ");
-            }
-            System.out.println();
-            nilaiAwalSegitiga -= 2;
-            spasi++;
-
         }
     }
 
     public static void trapesiumTerbalik(int panjangAtas, int tinggi) {
         int spasi = 0;
-        for (int i = 0; i < tinggi; i++) {
-            for (int k = 0; k < spasi; k++) {
+        for (int i = 0; i < tinggi; i++) {              //banyak baris ke bawah
+            for (int k = 0; k < spasi; k++) {           //print spasi
                 System.out.print("   ");
             }
-            for (int j = 0; j < panjangAtas; j++) {
+            for (int j = 0; j < panjangAtas; j++) {     //print baris bintang2
                 System.out.print("*  ");
             }
             System.out.println();
-            panjangAtas -= 2;
+            panjangAtas -= 2;                           //-2 karena berkurang di setiap sisi
             spasi++;
-        }
-        if(panjangAtas<0){
-            System.out.println("Trapesium mungkin error");
         }
     }
 
     public static void segitigaSiku(int tinggi) {
         int panjangBaris = 1;
-        for (int i = 0; i < tinggi; i++) {
-            for (int j = 0; j < panjangBaris; j++) {
+        for (int i = 0; i < tinggi; i++) {              //banyak baris ke bawah
+            for (int j = 0; j < panjangBaris; j++) {    //print bintang2 ke samping
                 System.out.print("*  ");
             }
             System.out.println();
@@ -298,22 +252,22 @@ public class TugasPemdas {
 
     public static void penta(int x) {
         int segitigaAwal = 1;
-        int spasi2 = x - 1;
-        for (int i = 0; i < x - 1; i++) {
-            for (int k = 0; k < spasi2; k++) {
+        int spasi2 = x - 1;                             //
+        for (int i = 0; i < x - 1; i++) {               //tinggi segitiga-1 karena dimakan satu baris oleh bagian bawah
+            for (int k = 0; k < spasi2; k++) {          //print spasi
                 System.out.print("   ");
             }
             spasi2--;
-            for (int j = 0; j < segitigaAwal; j++) {
+            for (int j = 0; j < segitigaAwal; j++) {    //print bintang2
                 System.out.print("*  ");
             }
             System.out.println();
             segitigaAwal += 2;
         }
 
-        int panjang = 2 * x - 1;
+        int panjang = 2 * x - 1;    //sama seperti rumus alas segitiga sama kaki
         int spasi = 0;
-        boolean mines = true;
+        boolean mines = true;       //
         for (int i = 0; i < x; i++) {
             for (int k = 0; k < spasi; k++) {
                 System.out.print("   ");
@@ -330,5 +284,6 @@ public class TugasPemdas {
                 mines = true;
             }
         }
+ 
     }
 }
