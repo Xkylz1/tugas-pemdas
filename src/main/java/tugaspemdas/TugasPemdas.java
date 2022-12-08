@@ -7,14 +7,14 @@ public class TugasPemdas {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int menu, menuTrapesium, menuSegitiga;
-        int panjang = 0;
-        int lebar = 0;
-        int tinggi = 0;
+        int panjang;
+        int lebar;
+        int tinggi;
         int alas = 0;
-        int atas = 0;
-        int bawah = 0;
-        int sisi = 0;
-        boolean end = false;
+        int atas;
+        int sisi;
+
+        boolean mengulangMenu = true;
         do {
             menu();
             menu = in.nextInt();
@@ -50,13 +50,13 @@ public class TugasPemdas {
                         segitigaSiku(tinggi);
                     } else if (menuSegitiga == 3) {
                         System.out.println("Anda Kembali Ke - Menu");
-                        end = true;
+                        mengulangMenu = false;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                         System.out.println("Silakan Pilih Kembali");
                     }
-                } while (end == false);
-                end = false;
+                } while (mengulangMenu);
+                mengulangMenu = true;
             } else if (menu == 4) {
                 System.out.println("JAJAR GENJANG");
                 System.out.print("Masukan Alas : ");
@@ -92,13 +92,13 @@ public class TugasPemdas {
                         trapesiumTerbalik(atas, tinggi);
                     } else if (menuTrapesium == 3) {
                         System.out.println("Anda Kembali Ke - Menu");
-                        end = true;
+                        mengulangMenu = false;
                     } else {
                         System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                         System.out.println("Silakan Pilih Kembali");
                     }
-                } while (end == false);
-                end = false;
+                } while (mengulangMenu);
+                mengulangMenu = true;
             } else if (menu == 6) {
                 System.out.println("SEGI LIMA");
                 System.out.print("Masukan Panjang Sisi (Hanya Ganjil lebih dari 3) : ");
@@ -115,12 +115,12 @@ public class TugasPemdas {
             } else if (menu == 8) {
                 System.out.println("Terima Kasih Sudah Menggunakan Program Kami");
                 System.out.println("Anda Keluar Dari Program.");
-                end = true;
+                mengulangMenu = false;
             } else {
                 System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                 System.out.println("Silakan Pilih Kembali");
             }
-        } while (end == false);
+        } while (mengulangMenu);
     }
 
     public static void menu() {
