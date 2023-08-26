@@ -6,117 +6,45 @@ public class TugasPemdas {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int menu, menuTrapesium, menuSegitiga;
-        int panjang, lebar, tinggi, atas, sisi;
-        int alas = 0;
 
-        while(true){
-        menu();
-        menu = in.nextInt();
-        if (menu == 1) {
-            System.out.println("PERSEGI");
-            System.out.print("Masukan Panjang : ");
-            panjang = in.nextInt();
-            cetakPersegi(panjang,panjang);
-        } else if (menu == 2) {
-            System.out.println("PERSEGI PANJANG");
-            System.out.print("Masukan Panjang : ");
-            panjang = in.nextInt();
-            System.out.print("Masukan Lebar : ");
-            lebar = in.nextInt();
-            cetakPersegi(panjang, lebar);
-            if (panjang == lebar) {
-                System.out.println("Ini Bukan Persegi Panjang");
-            }
-        } else if (menu == 3) {
-            while (true){
-                menuSegitiga();
-                menuSegitiga = in.nextInt();
-                if (menuSegitiga == 1) {
-                    System.out.println("SEGITIGA SAMA KAKI");
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    //Method segitiga sama kaki
-                    cetakSegitigaSamaKaki(tinggi);
-                } else if (menuSegitiga == 2) {
-                    System.out.println("SEGITIGA SIKU - SIKU");
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    cetakSegitigaSiku(tinggi);
-                } else if (menuSegitiga == 3) {
-                    System.out.println("Anda Kembali Ke - Menu");
+        while (true) {
+            displayMenu();
+            int menu = in.nextInt();
+
+            switch (menu) {
+                case 1:
+                    handlePersegi(in);
                     break;
-                } else {
+                case 2:
+                    handlePersegiPanjang(in);
+                    break;
+                case 3:
+                    handleSegitiga(in);
+                    break;
+                case 4:
+                    handleJajarGenjang(in);
+                    break;
+                case 5:
+                    handleTrapesium(in);
+                    break;
+                case 6:
+                    handleSegiLima(in);
+                    break;
+                case 7:
+                    handleSegiDelapan(in);
+                    break;
+                case 8:
+                    System.out.println("Terima Kasih Sudah Menggunakan Program Kami");
+                    System.out.println("Anda Keluar Dari Program.");
+                    return;
+                default:
                     System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
                     System.out.println("Silakan Pilih Kembali");
-                }
             }
-        } else if (menu == 4) {
-            System.out.println("JAJAR GENJANG");
-            System.out.print("Masukan Alas : ");
-            alas = in.nextInt();
-            System.out.print("Masukan Tinggi : ");
-            tinggi = in.nextInt();
-            cetakJajarGenjang(alas, tinggi);
-        } else if (menu == 5) {
-            while (true){
-                menuTrapesium();
-                menuTrapesium = in.nextInt();
-                if (menuTrapesium == 1) {
-                    System.out.println("TRAPESIUM");
-                    System.out.print("Masukan Alas : ");
-                    alas = in.nextInt();
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    int atasTrapesium = alas - (2 * (tinggi - 1));
-                    if (atasTrapesium < 2) {
-                        System.out.println("Trapesium ini mungkin tidak sempurna");
-                    }
-                    cetakTrapesiumOriginal(alas, tinggi);
-                } else if (menuTrapesium == 2) {
-                    System.out.println("TRAPESIUM TERBALIK");
-                    System.out.print("Masukan Atas : ");
-                    atas = in.nextInt();
-                    System.out.print("Masukan Tinggi : ");
-                    tinggi = in.nextInt();
-                    int atasTrapesium = alas - (2 * (tinggi - 1));
-                    if (atasTrapesium < 2) {
-                        System.out.println("Trapesium ini mungkin tidak sempurna");
-                    }
-                    cetakTrapesiumTerbalik(atas, tinggi);
-                } else if (menuTrapesium == 3) {
-                    System.out.println("Anda Kembali Ke - Menu");
-                    break;
-                } else {
-                    System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
-                    System.out.println("Silakan Pilih Kembali");
-                }
-            }
-        } else if (menu == 6) {
-            System.out.println("SEGI LIMA");
-            System.out.print("Masukan Panjang Sisi (Hanya Ganjil lebih dari 3) : ");
-            sisi = in.nextInt();
-            cetakPentagon(sisi);
-        } else if (menu == 7) {
-            System.out.println("SEGI DELAPAN");
-            System.out.print("Masukan Panjang Sisi : ");
-            sisi = in.nextInt();
-            if (sisi < 2) {
-                System.out.println("Segi delapan ini mungkin tidak sempurna");
-            }
-            cetakOktagon(sisi);
-        } else if (menu == 8) {
-            System.out.println("Terima Kasih Sudah Menggunakan Program Kami");
-            System.out.println("Anda Keluar Dari Program.");
-            break;
-        } else {
-            System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
-            System.out.println("Silakan Pilih Kembali");
         }
     }
-    }
 
-    public static void menu() {
+    public static void displayMenu() {
         System.out.println("================================================");
         System.out.println("PROGRAM BANGUN DATAR");
         System.out.println("1. Persegi");
@@ -130,15 +58,46 @@ public class TugasPemdas {
         System.out.print("Silakan Pilih Menu : ");
     }
 
-    public static void menuTrapesium() {
-        System.out.println("TRAPESIUM");
-        System.out.println("1. Trapesium");
-        System.out.println("2. Trapesium Terbalik");
-        System.out.println("3. Kembali");
-        System.out.print("Silakan Pilih Menu : ");
+    public static void handlePersegi(Scanner in) {
+        System.out.println("PERSEGI");
+        System.out.print("Masukan Panjang : ");
+        int panjang = in.nextInt();
+        cetakPersegi(panjang, panjang);
     }
 
-    public static void menuSegitiga() {
+    public static void handlePersegiPanjang(Scanner in) {
+        System.out.println("PERSEGI PANJANG");
+        System.out.print("Masukan Panjang : ");
+        int panjang = in.nextInt();
+        System.out.print("Masukan Lebar : ");
+        int lebar = in.nextInt();
+        cetakPersegi(panjang, lebar);
+        if (panjang == lebar) {
+            System.out.println("Ini Bukan Persegi Panjang");
+        }
+    }
+
+    public static void handleSegitiga(Scanner in) {
+        while (true) {
+            displaySegitigaMenu();
+            int menuSegitiga = in.nextInt();
+            switch (menuSegitiga) {
+                case 1:
+                    handleSegitigaSamaKaki(in);
+                    break;
+                case 2:
+                    handleSegitigaSikuSiku(in);
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
+                    System.out.println("Silakan Pilih Kembali");
+            }
+        }
+    }
+
+    public static void displaySegitigaMenu() {
         System.out.println("SEGITIGA");
         System.out.println("1. Segitiga Sama Kaki");
         System.out.println("2. Segitiga Siku - Siku");
@@ -146,7 +105,102 @@ public class TugasPemdas {
         System.out.print("Silakan Pilih Menu : ");
     }
 
+    public static void handleSegitigaSamaKaki(Scanner in) {
+        System.out.println("SEGITIGA SAMA KAKI");
+        System.out.print("Masukan Tinggi : ");
+        int tinggi = in.nextInt();
+        cetakSegitigaSamaKaki(tinggi);
+    }
 
+    public static void handleSegitigaSikuSiku(Scanner in) {
+        System.out.println("SEGITIGA SIKU - SIKU");
+        System.out.print("Masukan Tinggi : ");
+        int tinggi = in.nextInt();
+        cetakSegitigaSiku(tinggi);
+    }
+
+    public static void handleJajarGenjang(Scanner in) {
+        System.out.println("JAJAR GENJANG");
+        System.out.print("Masukan Alas : ");
+        int alas = in.nextInt();
+        System.out.print("Masukan Tinggi : ");
+        int tinggi = in.nextInt();
+        cetakJajarGenjang(alas, tinggi);
+    }
+
+    public static void handleTrapesium(Scanner in) {
+        while (true) {
+            displayTrapesiumMenu();
+            int menuTrapesium = in.nextInt();
+            switch (menuTrapesium) {
+                case 1:
+                    handleTrapesiumOriginal(in);
+                    break;
+                case 2:
+                    handleTrapesiumTerbalik(in);
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Menu Yang Anda Pilih Tidak Tersedia !");
+                    System.out.println("Silakan Pilih Kembali");
+            }
+        }
+    }
+
+    public static void displayTrapesiumMenu() {
+        System.out.println("TRAPESIUM");
+        System.out.println("1. Trapesium");
+        System.out.println("2. Trapesium Terbalik");
+        System.out.println("3. Kembali");
+        System.out.print("Silakan Pilih Menu : ");
+    }
+
+    public static void handleTrapesiumOriginal(Scanner in) {
+        System.out.println("TRAPESIUM");
+        System.out.print("Masukan Alas : ");
+        int alas = in.nextInt();
+        System.out.print("Masukan Tinggi : ");
+        int tinggi = in.nextInt();
+        int atasTrapesium = alas - (2 * (tinggi - 1));
+        if (atasTrapesium < 2) {
+            System.out.println("Trapesium ini mungkin tidak sempurna");
+        }
+        cetakTrapesiumOriginal(alas, tinggi);
+    }
+
+    public static void handleTrapesiumTerbalik(Scanner in) {
+        System.out.println("TRAPESIUM TERBALIK");
+        System.out.print("Masukan Atas : ");
+        int atas = in.nextInt();
+        System.out.print("Masukan Tinggi : ");
+        int tinggi = in.nextInt();
+        int atasTrapesium = atas - (2 * (tinggi - 1));
+        if (atasTrapesium < 2) {
+            System.out.println("Trapesium ini mungkin tidak sempurna");
+        }
+        cetakTrapesiumTerbalik(atas, tinggi);
+    }
+
+    // Define other methods for handling shapes...
+    public static void handleSegiLima(Scanner in) {
+        System.out.println("SEGI LIMA");
+        System.out.print("Masukan Panjang Sisi (Hanya Ganjil lebih dari 3) : ");
+        int sisi = in.nextInt();
+        cetakPentagon(sisi);
+    }
+
+    public static void handleSegiDelapan(Scanner in) {
+        System.out.println("SEGI DELAPAN");
+        System.out.print("Masukan Panjang Sisi : ");
+        int sisi = in.nextInt();
+        if (sisi < 2) {
+            System.out.println("Segi delapan ini mungkin tidak sempurna");
+        }
+        cetakOktagon(sisi);
+    }
+
+    //Print Method
     public static void cetakPersegi(int panjang, int lebar) {
         for (int i = 0; i < lebar; i++) {           //banyak baris ke bawah
             for (int j = 0; j < panjang; j++) {     //panjang satu baris
